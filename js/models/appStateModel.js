@@ -12,6 +12,7 @@ window.AppState = Backbone.Model.extend({
     initialize:function () {
         _.bindAll(this, 'onOffline');
         _.bindAll(this, 'onOnline');
+        _.bindAll(this, 'onResume');
         _.bindAll(this, 'onKeyboardShow');
         _.bindAll(this, 'onKeyboardHide');
 
