@@ -1,0 +1,72 @@
+<% var towing = towings['models'][towings.length-1] %>
+<% var pickupPlace = towing.get("pickupPlace"); %>
+<% var destination = towing.get("destination"); %>
+<% var pickupDate = towing.get("pickupDate"); %>
+
+<%
+	towingDate = towing.get("pickupDate").day;
+	towingDate += " " + app.strings.get(currentLanguage).months[towing.get("pickupDate").month];
+	towingDate += " " + towing.get("pickupDate").year;
+%>
+
+<div class="page-content ui-corner-all custom-corners car-details">
+
+	<div class="status-progress">
+		<ul class="clearfix">
+
+			<li class="pickup"><a href="#" class="current"><span>Lieu d'enlèvement</span></a></li>
+			<li class="destination"><a href="#"><span>Emplacement actuel du véhicule</span></a></li>
+
+		</ul>
+	</div>
+
+	<div class="ui-grid-a address-bubbles">
+	    <div class="ui-block-a">
+			<p class="pickup-address address">
+				<%= pickupPlace.street.type %> <%= pickupPlace.street.name %> <%= pickupPlace.street.orientation %>
+
+				<span class="pickup-date">
+					En date du : <br/>
+					<strong><%= towingDate %></strong>
+				</span>
+			</p>
+
+	    </div>
+	    <div class="ui-block-b">
+			<p class="destination-address address">
+				<%= destination.addressNumber %> <%= destination.street.type %> <%= destination.street.name %> <%= destination.street.orientation %>
+				<button id="map-btn" class="ui-mini ui-btn ui-btn-a ui-icon-navigation ui-btn-icon-left ui-btn-active">S'y rendre</button>
+			</p>
+	    </div>
+	</div><!-- /grid-a -->
+
+
+	<div id="directions">
+		<div class="ui-body ui-body-a">
+	        <div data-role="navbar" data-iconpos="bottom" class="ui-shadow">
+	            <ul>
+	                <li><a id="btn-map-walking" data-transportation="walking" href="#" data-icon="walking" class="ui-btn-active"></a></li>
+	                <li><a id="btn-map-bus" data-transportation="bus" href="#" data-icon="bus"></a></li>
+	                <li><a id="btn-map-car" data-transportation="car" href="#" data-icon="car"></a></li>
+	            </ul>
+	        </div><!-- /navbar -->
+
+			<div id="map">
+
+				<div class="ui-grid-a map-options">
+				    <div class="ui-block-a"><a href="#" class="ui-btn-a ui-mini toggle-itinerary ui-btn ui-icon-arrow-u-r ui-btn-icon-left">Afficher les directions</a></div>
+				    <div class="ui-block-b"><a href="#" id="map-fullscreen-toggle" class="ui-btn-a ui-mini expand ui-btn ui-icon-expand ui-btn-icon-left">Plein écran</a></div>
+				</div><!-- /grid-a -->
+				
+			</div>
+			<span class="loading-spinner big"></span>
+			
+			
+		</div>
+	</div>
+
+
+
+
+
+</div>

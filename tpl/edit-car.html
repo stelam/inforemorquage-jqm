@@ -1,0 +1,56 @@
+<div class="page" id="edit-car" style="padding:12px">
+	<fieldset>
+		<h3>Photo</h3>
+		<p>
+			<% if (photoUrl == "") { %>
+				<div id="car-image" class="thumb default" style="background-image:url(photos/sample.png)"></div>
+			<% } else { %> 
+				<div id="car-image" class="thumb default" style="background-image:url(<%= photoUrl %>)"></div>
+			<% } %>
+
+			<label class="tip center" for="car-photo">Vous pouvez utiliser une photo pour identifier votre véhicule : </label>
+			<div class="ui-grid-a camera-button-group">
+				<div class="ui-block-a">
+				    <a data-role="button" data-icon="camera" data-iconpos="top" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="camera-control">
+				   		<span class="ui-btn-inner ui-btn-corner-all">
+					    	<span class="ui-btn-text">Nouvelle photo</span>
+				    	</span>
+				    </a>
+				</div>
+				<div class="ui-block-b">
+				    <a data-role="button" data-icon="search" data-iconpos="top" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="browse-photo">
+				    	<span class="ui-btn-text">Photo existante</span>
+				    </a>
+				</div>
+			</div>
+
+		</p>
+		<% if (typeof id == "undefined") { %>
+
+			<h3>Information de base</h3>
+
+			<p>
+				<input type="text" placeholder="Nom du véhicule" id="name"/>
+			</p>
+
+			<p>
+				<input type="text" class="required" placeholder="Plaque d'immatriculation (Exemple : 555AAA)" id="registration_number" />
+			</p>
+
+		<% } else { %>
+			<h3>Nom du véhicule</h3>
+			<p>
+				<input type="text" value="<%= name %>" placeholder="Nom du véhicule" id="name"/>
+			</p>
+
+			<h3>Plaque d'immatriculation</h3>
+			<p>
+				<input type="text" class="required" placeholder="Plaque d'immatriculation (Exemple : 555AAA)" id="registration_number" value="<%= registration_number %>" />
+			</p>
+		<% } %>
+
+
+	</fieldset>
+
+
+</div>

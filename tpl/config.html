@@ -1,0 +1,30 @@
+<div class="page-content ui-corner-all custom-corners config">
+	<form>
+		<div class="field-towed-status-time">
+		    <label for="towed-status-time">Afficher les voitures qui ont été remorquées dans les derniers </label>
+		    <input type="range" name="towed-status-time" id="towed-status-time" data-highlight="true" min="1" max="12" value="<%= towingTimeLookBack %>">
+		    <span class="sub-label">(en mois)</span>
+		</div>
+
+
+		<div class="field-language">
+			<fieldset data-role="controlgroup" data-type="horizontal">
+			    <legend>Langue de l'interface : </legend>
+			    <input type="radio" name="language" id="language-french" value="french" <% if (currentLanguage == "french") { %> checked="checked" <% } %>>
+			    <label for="language-french">Français</label>
+			    <input type="radio" name="language" id="language-english" value="english" <% if (currentLanguage == "english") { %> checked="checked" <% } %>>
+			    <label for="language-english">English</label>
+			</fieldset>
+		</div>
+
+
+		<div class="field-vibration-alert">
+			<label for="flip-checkbox-2">Vibrer lorsqu'une voiture est remorquée :</label>
+			<input type="checkbox" data-role="flipswitch" name="vibration" id="vibration" data-on-text="Oui" data-off-text="Non" data-wrapper-class="custom-label-flipswitch" <% if (vibrateOnCarTowed) { %> checked="checked" <% } %>>
+		</div>
+	</form>
+<form>
+
+</form>
+</form>
+</div>

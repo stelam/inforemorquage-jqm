@@ -1,0 +1,58 @@
+<% var bgPos1 = Math.floor((Math.random() * 100) + 1) %>
+<% var bgPos2 = Math.floor((Math.random() * 100) + 1) %>
+
+
+	
+	<% if (photoUrl == "") { %>
+		<a href="#popupMenu-<%= id %>" data-rel="popup" data-transition="pop"   class="image-container" style="background-image: url('photos/sample.png'); background-position: <%= bgPos1 %>% <%= bgPos2 %>%"></a>
+	<% } else { %>
+		<a href="#popupMenu-<%= id %>" data-rel="popup" data-transition="pop"  class="image-container" style="background-image: url('<%= photoUrl %>')"></a>
+	<% } %>
+	
+	<div class="content">
+		<h2>
+			<a href="" class="">
+				<%= name %>	
+			</a>
+		</h2>
+		<p class="registration"><%= registration_number %></p>
+
+		<% if (loaded == false) { %>
+		    <p class="status-string loading"><%- statusString %><span class="loading-spinner"></span></p>
+		<% } %>
+
+		<% if (loaded == true) { %>
+			<% if (status == 1) { %>
+		    	<p class="status-string status-<%- status %> "><%- statusString %></p>
+			<% } else { %>  
+				<% if (navigator.notification && app.config.get("vibrateOnCarTowed")) navigator.notification.vibrate(500); %>  
+				<p class="status-string status-<%- status %> "><strong><%- statusString %></strong></p>
+				<span class="towing-alert blink-fast ui-btn-icon-notext ui-icon-alert"></span>
+			<% } %>
+		<% } %>
+
+
+		<a href="#popupMenu-<%= id %>" data-rel="popup" data-transition="pop" id="menu-button-<%= id %>" class="car-menu-btn ui-btn ui-btn-right ui-corner-all ui-shadow ui-btn-inline ui-icon-carat-d ui-btn-icon-left ui-btn-a ui-btn-icon-notext"></a>
+
+		<a href="#popupMenu-<%= id %>" data-rel="popup" data-transition="pop" class="link-overlay"></a>
+	</div>
+
+
+	<div data-role="popup" id="popupMenu-<%= id %>" data-theme="a">
+	    <ul data-role="listview" data-inset="true">
+	    	<% if (status == 0) { %>
+	        	<li data-icon="false"><a class="info-car-btn ui-btn ui-icon-info ui-btn-icon-left" href="#">Info-remorquage</a></li>
+	        <% } %>
+	        <li data-icon="false"><a class="edit-car-btn ui-btn ui-icon-edit ui-btn-icon-left" href="#">Modifier</a></li>
+	        <li data-icon="false"><a class="refresh-car-btn ui-btn ui-icon-recycle ui-btn-icon-left" href="#">Actualiser</a></li>
+	        <li data-icon="false"><a class="delete-car-btn ui-btn ui-icon-delete ui-btn-icon-left" href="#">Supprimer</a></li>
+	    </ul>
+	</div>
+
+<!--<section data-role="navbar" data-theme="b">
+    <ul>
+        <li><a href="#" data-icon="edit" data-theme="b">Modifier</a></li>
+        <li><a href="#" data-icon="delete" data-theme="b">Supprimer</a></li>
+        <li><a href="#" data-icon="delete" data-theme="b">Plainte</a></li>
+    </ul>
+</section>-->

@@ -1,0 +1,38 @@
+<div data-role="header" role="banner" class="app-header ui-header ui-bar-inherit <%- css_classes %>">
+	<button href="#" class="ui-btn-left ui-btn ui-icon-<%- left_button_icon %> ui-btn-icon-left ui-btn-inline ui-corner-all ui-mini" data-role="button" role="button"></button>
+	<h1 class="ui-title" role="heading" aria-level="1"><%- title %></h1>
+	<button class="ui-btn-right ui-btn ui-btn-b ui-icon-<%- right_button_icon %> ui-btn-icon-right ui-btn-inline ui-corner-all ui-mini"><%- right_button_label %></button>
+
+	<a href="#popupMenu" id="menu-button" data-rel="popup" data-transition="pop" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-btn-inline ui-icon-bars ui-btn-icon-left ui-btn-a"></a>
+
+    <!-- Nav for contextual -->
+    <a href="#popupMenuContextual" id="menu-button-contextual" data-rel="popup" data-transition="pop" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-btn-inline ui-icon-bars ui-btn-icon-left ui-btn-a"></a>
+    <!-- /Nav for contextual -->
+
+</div>
+
+
+
+
+<div data-role="panel" data-display="push" id="itinerary-panel" data-swipe-close="true">
+    <div id='directionsItinerary'></div>
+</div><!-- /panel -->
+
+<div data-role="popup" id="popupMenu" data-theme="b">
+    <ul data-role="listview" data-inset="true" style="min-width:210px;">
+        <li data-icon="false"><a class="add-car-btn ui-btn ui-icon-plus ui-btn-icon-left" href="#cars/add">Ajouter un véhicule</a></li>
+        <li data-icon="false"><a class="refresh-btn ui-btn ui-icon-recycle ui-btn-icon-left" href="#">Actualiser les véhicules</a></li>
+        <li data-icon="false"><a class="call-btn ui-btn ui-icon-info ui-btn-icon-left" href="#app/complaint">Véhicule endommagé</a></li>
+        <li data-icon="false"><a class="config-btn ui-btn ui-icon-gear ui-btn-icon-left" href="#app/configuration">Paramètres</a></li>
+    </ul>
+</div>
+
+<!-- Nav for contextual (static for now) -->
+<% if (typeof data != undefined && typeof data.carId != undefined) { %>
+<div data-role="popup" id="popupMenuContextual" data-theme="b">
+    <ul data-role="listview" data-inset="true">
+        <li data-icon="false"><a class="add-car-btn ui-btn ui-icon-alert ui-btn-icon-left" href="#cars/<%- data.carId %>/complaint/info">Véhicule endommagé ?</a></li>
+    </ul>
+</div>
+<% } %>
+<!-- /Nav for contextual -->

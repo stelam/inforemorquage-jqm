@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.prototype.phonegap.jqm" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>InfoRemorquageJqm</name>
+    <description>
+        Application prototype d'info-remorquage pour tester le développement hybride d'application mobile
+    </description>
+    <author email="stephane.lam@ville.montreal.qc.ca" href="http://ville.montreal.qc.ca">
+        Ville de Montréal
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+
+    <feature name="Device">
+    	<param name="android-package" value="org.apache.cordova.device.Device"/>
+        <param name="ios-package" value="org.apache.cordova.device.Device" />
+    </feature>
+
+    <feature name="Camera">
+    	<param name="android-package" value="org.apache.cordova.camera.CameraLauncher"/>
+    </feature>
+    <feature name="Notification">
+    	<param name="android-package" value="org.apache.cordova.dialogs.Notification"/>
+    </feature>
+
+    <plugins>
+    	<plugin name="Device" value="org.apache.cordova.Device"/>
+    </plugins>
+
+    <!-- Listing plugins for Phonegap Build -->
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="de.appplant.cordova.plugin.email-composer" version="~0.8" />
+    <gap:plugin name="org.apache.cordova.camera"/>
+    <gap:plugin name="org.apache.cordova.dialogs" version="~0.2" />
+    <gap:plugin name="org.apache.cordova.file" />
+    <gap:plugin name="org.apache.cordova.geolocation" version="~0.3" />
+    <gap:plugin name="org.apache.cordova.media" version="~0.2" />
+    <gap:plugin name="org.apache.cordova.media-capture" />
+    <gap:plugin name="org.apache.cordova.network-information" version="~0.2" />
+    <gap:plugin name="org.apache.cordova.splashscreen" />
+    <gap:plugin name="org.apache.cordova.vibration" />
+    <gap:plugin name="org.apache.cordova.statusbar" />
+    
+
+</widget>

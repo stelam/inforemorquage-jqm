@@ -1,0 +1,19 @@
+<div class="notification <%- type %>">
+	<aside>
+		<span class="ui-btn-icon-notext ui-icon-<%- icon %>"></span>
+	</aside>
+	<main>
+		<b><%- title %></b>
+		<br /><br />
+		<%= message %>
+		<br />
+		<% console.log(showButtons)  %>
+		<% if (showButtons == true) { %>
+			<div class="buttons">
+				<button class="ui-btn ui-btn-inline left-button"><%- leftButtonLabel %></button>
+				<button class="ui-btn ui-btn-inline right-button"><%- rightButtonLabel %></button>
+			</div>
+		<% } %>
+	</main>
+	<span class="delete ui-btn-icon-notext ui-icon-delete"></span>
+</div>
