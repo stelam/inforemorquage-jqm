@@ -95,7 +95,7 @@ window.ComplaintModel = Backbone.Model.extend({
 
         // Callback lorsque la photo est sauvegardée
         function onPhotSaved(dir, filename){
-            model.set({"photos" : [dir.toURL() + filename]});
+            model.set({"photos" : [dir.toNativeURL() + filename]});
             model.trigger("readyForOfflineSave");
         }
     },
@@ -111,7 +111,7 @@ window.ComplaintModel = Backbone.Model.extend({
 
         // Callback lorsque la photo est sauvegardée
         function onPhotSaved(dir, filename){
-            model.set({"photos" : [dir.toURL() + filename]});
+            model.set({"photos" : [dir.toNativeURL() + filename]});
             model.trigger("browsedPhotoSaved");
         }
     },

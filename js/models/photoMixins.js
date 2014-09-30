@@ -13,7 +13,7 @@ PhotoMixins = {
 				fileSys.root.getDirectory('info-remorquage', {create: true}, function(dir) {
 				
 					entry.copyTo(dir, fileName, function(movedEntry) {
-						photoUrl = dir.toURL() + fileName;
+						photoUrl = dir.toNativeURL() + fileName;
 
 						callback(dir, fileName);
 

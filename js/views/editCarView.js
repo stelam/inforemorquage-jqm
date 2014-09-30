@@ -184,7 +184,7 @@ window.EditCarPage = Backbone.View.extend({
 					
 						entry.copyTo(dir, fileName, function(movedEntry) {
 							console.log("File moved");
-							photoUrl = dir.toURL() + fileName;
+							photoUrl = dir.toNativeURL() + fileName;
 							saveCarData();
 
 						}, function(error) { 
