@@ -26,6 +26,8 @@
     	<plugin name="Device" value="org.apache.cordova.Device"/>
     </plugins>
 
+    <preference name="keyboardDisplayRequiresUserAction" value="false" />
+
     <!-- Listing plugins for Phonegap Build -->
     <gap:plugin name="de.appplant.cordova.plugin.email-composer" version="0.8.1" />
     <gap:plugin name="org.apache.cordova.camera" version="0.2.9" />
