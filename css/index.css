@@ -235,7 +235,7 @@ html, body {height: 100%;}
 * Android quirks
 ***************/
 /*Scrolling performance*/
-body:not(.windows, .windows8) * {    
+.Android *, .iOS * {    
     -webkit-transform : translateZ(0); 
     -o-transform : translateZ(0); 
     -moz-transform : translateZ(0); 
