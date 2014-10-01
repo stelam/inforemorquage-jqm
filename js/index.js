@@ -43,7 +43,10 @@ var app = {
 
         //alert(window.device.platform)
         // Détecter le type d'appareil
-        $("body").addClass(window.device.platform);
+        if (typeof window.device != "undefined")
+            $("body").addClass(window.device.platform);
+        else
+            $("body").addClass("desktop");
 
 
     },
@@ -129,10 +132,9 @@ $(document).one(app.initEvent, function () {
 
 
             // Load Bing Maps if not on Windows
-            if (window.device.platform != "windows" && window.device.platform != "windows8"){
+            if (typeof window.device != "undefined" && window.device.platform != "windows" && window.device.platform != "windows8"){
                 $(function(){
-                    console.log("getting Bing Maps")
-                    $.getScript("bing.maps.js");
+                    $.getScript("js/bing.maps.js");
                 });
             }
 

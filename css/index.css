@@ -235,7 +235,7 @@ html, body {height: 100%;}
 * Android quirks
 ***************/
 /*Scrolling performance*/
-.Android *, .iOS * {    
+.Android *, .iOS *, .desktop * {    
     -webkit-transform : translateZ(0); 
     -o-transform : translateZ(0); 
     -moz-transform : translateZ(0); 
@@ -246,15 +246,15 @@ html, body {height: 100%;}
 /***************
 * iOS quirks
 ***************/
-.iOS .app-header {border-top: #ddd 20px solid;}
-.iOS .app-header > button {top: 5px;}
-.iOS .app-header > h1 {position: relative; top: 0px;}
-.iOS .ui-header .ui-btn-icon-left {top: 6px;}
-.iOS #dashboard-car-list {padding-top: 30px;}
+.iOS .app-header {border-top: #ddd 22px solid;}
+.iOS .app-header > button {top: 7px;}
+.iOS .app-header > h1 {position: relative; top: 2px;}
+.iOS .ui-header .ui-btn-icon-left {top: 8px;}
+.iOS #dashboard-car-list {padding-top: 32px;}
 .iOS .app-header #menu-button,
-.iOS .app-header #menu-button-contextual {top: 9px;}
-.iOS #edit-car-page {padding-top: 65px;}
-.iOS .page-content {padding-top: 40px;}
+.iOS .app-header #menu-button-contextual {top: 11px;}
+.iOS #edit-car-page {padding-top: 67px;}
+.iOS .page-content {padding-top: 42px;}
 
 
 /***************
@@ -446,8 +446,8 @@ html head+body .ui-listview li.selected .ui-btn.ui-btn-a{
 .car-item {min-height: 130px; background: none !important;}
 .car-item .car-menu-btn {border: none; background: none !important; box-shadow: none !important;
     top: auto;
-    bottom: 0px;
-    right: -4px;
+    bottom: -8px;
+    right: -16px;
 }
 .windows .car-item .car-menu-btn,
 .windows8 .car-item .car-menu-btn {bottom: 9px; right: 7px;}

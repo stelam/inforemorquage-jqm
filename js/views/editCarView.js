@@ -2,6 +2,7 @@ window.EditCarPage = Backbone.View.extend({
 
     initialize:function () {
     	_.bindAll(this,"validate");
+    	_.bindAll(this,"processKey");
         this.template = _.template(tpl.get('edit-car'));
         this.imageURI = "";
         this.listenTo(app.eventBus, 'headerRightButton', this.validate);
@@ -19,7 +20,8 @@ window.EditCarPage = Backbone.View.extend({
     	return {
 	    	'click .camera-control' : 'capturePhoto',
 	    	'click #car-image' : 'capturePhoto',
-	    	'click .browse-photo' : 'browsePhoto'
+	    	'click .browse-photo' : 'browsePhoto',
+	    	'keyup': 'processKey'
 	    }
     },
 
@@ -43,6 +45,14 @@ window.EditCarPage = Backbone.View.extend({
     	};
     },
 
+	processKey: function(e) { 
+		if(e.which === 13){ // enter key
+			if ($(':focus').attr("id") == "name")
+				$("#registration_number").focus();
+			else if ($(':focus').attr("id") == "registration_number")
+				this.validate();
+		}
+	},
 
     flagNewCar: function(){
     	if (typeof this.model.id == "undefined")
