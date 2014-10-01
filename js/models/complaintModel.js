@@ -69,12 +69,15 @@ window.ComplaintModel = Backbone.Model.extend({
     sendEmail: function(){
         var registration_number = this.get("car").get("registration_number").toUpperCase();
 
-        window.plugin.email.open({
+        // Envoi d'un email ou POST à un serveur ici
+        /*window.plugin.email.open({
             to:      [app.appState.get("config").serviceEmailAddress],
             subject: "Dommages causés par le remorquage du véhicule portant l'immatriculation [" + registration_number + "]",
             body:    this.get("message"),
             attachments: this.get("photos")
-        }, this.onEmailSent);
+        }, this.onEmailSent);*/
+
+        this.onEmailSent();
     },
 
 
@@ -127,7 +130,7 @@ window.ComplaintModel = Backbone.Model.extend({
     onEmailSent: function(emailClientResponse){
         app.notification.display({
             "type" : "success",
-            "message" : "Nous vous répondrons dans les plus brefs délais après la réception de votre courriel.",
+            "message" : "Nous vous répondrons dans les plus brefs délais après la réception de votre message.",
             "title" : "Merci",
             "showButtons" : false,
             "displayTime" : 3000

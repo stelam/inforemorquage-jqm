@@ -13,6 +13,7 @@ window.HeaderView = Backbone.View.extend({
         return {
         	'click button.ui-btn-right' : 'dispatchRightButton',
         	'click .ui-btn-left' : 'dispatchLeftButton',
+            'click h1' : 'dispatchLeftButton',
             'click #menu-button' : 'bindMenuEvents'
         }
     },
@@ -40,7 +41,8 @@ window.HeaderView = Backbone.View.extend({
             f();
         }
         else{
-    	   window.history.back();
+            if (this.model.get("css_classes").indexOf("no-back") < 0)
+                window.history.back();
         }
 
     	app.eventBus.trigger('headerLeftButton');

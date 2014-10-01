@@ -354,7 +354,13 @@ textarea.error {border: 1px solid #e64 !important;}
 .ui-page.welcome h1, .ui-page.welcome p {color: white; font-family: OpenSans-Light;}
 .ui-page.welcome h1 {}
 .ui-page.welcome p {text-align: center; font-weight: normal; padding: 0px 20px; text-transform: none; font-size: 16px;}
-#welcome {margin-top: 55%; padding: 12px;}
+#welcome {
+    bottom: 25%;
+    padding: 12px;
+    position: absolute;
+    width: 100%;
+}
+
 
 
 /***************
@@ -411,6 +417,12 @@ textarea.error {border: 1px solid #e64 !important;}
     top: 78px;
 }
 
+.windows .car-item .towing-alert,
+.windows8 .car-item .towing-alert {
+    left: 95px;
+    top: 88px;
+}
+
 .car-item .towing-alert:after{
     background-color: rgba(255,154,0,.9);
 }
@@ -437,6 +449,8 @@ html head+body .ui-listview li.selected .ui-btn.ui-btn-a{
     bottom: 0px;
     right: -4px;
 }
+.windows .car-item .car-menu-btn,
+.windows8 .car-item .car-menu-btn {bottom: 9px; right: 7px;}
 
 .car-item .car-menu-btn span {display: block;}
 .car-item .content {
