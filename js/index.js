@@ -122,10 +122,18 @@ $(document).one(app.initEvent, function () {
             app.appState.checkOfflineJobs();
 
             // Instanciation du router
-            
             if (typeof unitTesting == "undefined"){
                 app.router = new AppRouter();
                 Backbone.history.start();
+            }
+
+
+            // Load Bing Maps if not on Windows
+            if (window.device.platform != "windows" && window.device.platform != "windows8"){
+                $(function(){
+                    console.log("getting Bing Maps")
+                    $.getScript("bing.maps.js");
+                });
             }
 
 

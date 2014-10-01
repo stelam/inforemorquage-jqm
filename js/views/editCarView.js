@@ -94,8 +94,18 @@ window.EditCarPage = Backbone.View.extend({
 	* Affiche une image nouvellement capturée ou choisie
 	***************/
 	displayNewPhoto: function(imageURI) {
-		this.$("#car-image").css("background-image", "url("+imageURI+")");
-		this.model.set({"photoUrl" : imageURI});
+		if (device.platform != "windows" && device.platform != "windows8"){
+			this.$("#car-image").css("background-image", "url("+imageURI+")");
+			this.model.set({"photoUrl" : imageURI});
+		} else {
+
+		    var src = (encodeURI(imageURI));
+		    var $img = $("<img/>")
+		    $img.attr("src", imageURI);
+		    //$("body").prepend($img);
+		    $("#car-image").css("background-image", "none").html("").append($img);
+			this.model.set({"photoUrl" : imageURI});
+		}
 	},
 
 
@@ -170,6 +180,7 @@ window.EditCarPage = Backbone.View.extend({
 		var photoUrl = this.model.get("photoUrl");
 		var thisCar = this.model;
 		var view = this;
+		var photoFileName = "";
 
 		// Sauvegarde de la photo en mode persistance
 		if (this.model.get("photoUrl") != ""){
@@ -185,6 +196,7 @@ window.EditCarPage = Backbone.View.extend({
 						entry.copyTo(dir, fileName, function(movedEntry) {
 							console.log("File moved");
 							photoUrl = dir.toNativeURL() + "/" + fileName;
+							photoFileName = fileName;
 							saveCarData();
 
 						}, function(error) { 
@@ -213,6 +225,7 @@ window.EditCarPage = Backbone.View.extend({
 			thisCar.save({
 				"registration_number" : sanitizedRegistrationNumber,
 				"photoUrl" : photoUrl,
+				"photoFileName" : photoFileName,
 				"status" : 1
 			});
 		

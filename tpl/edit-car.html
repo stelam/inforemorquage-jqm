@@ -5,7 +5,12 @@
 			<% if (photoUrl == "") { %>
 				<div id="car-image" class="thumb default" style="background-image:url(photos/sample.png)"></div>
 			<% } else { %> 
-				<div id="car-image" class="thumb default" style="background-image:url(<%= photoUrl %>)"></div>
+				
+				<% if (window.device.platform != "windows" && window.device.platform != "windows8") { %>
+					<div id="car-image" class="thumb default" style="background-image:url(<%= photoUrl %>)"></div>
+				<% } else { %>
+					<div id="car-image" class="thumb default" style="background-image:url(<%= photoUrl %>)"><img src="ms-appdata:///local/info-remorquage/<%= photoFileName %>" /></div>
+				<% } %>
 			<% } %>
 
 			<label class="tip center" for="car-photo">Vous pouvez utiliser une photo pour identifier votre véhicule : </label>

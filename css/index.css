@@ -235,7 +235,7 @@ html, body {height: 100%;}
 * Android quirks
 ***************/
 /*Scrolling performance*/
-*{    
+body:not(.windows, .windows8) * {    
     -webkit-transform : translateZ(0); 
     -o-transform : translateZ(0); 
     -moz-transform : translateZ(0); 
@@ -335,7 +335,10 @@ textarea.error {border: 1px solid #e64 !important;}
     background-repeat: no-repeat;
     margin:auto;
     margin-bottom: 10px;
+    overflow: hidden;
 }
+
+#edit-car .thumb img {width: 100%; height: auto;}
 
 #edit-car .thumb.default {background-image: url(../photos/sample.png); background-size: 150px;}
 
@@ -373,6 +376,8 @@ textarea.error {border: 1px solid #e64 !important;}
     background-color: white !important;
     border: none !important;
 }
+
+.car-item .image-container img {width 100%; height: auto;}
 
 .link-overlay{
     background: transparent;
@@ -658,6 +663,8 @@ body.fullscreen-map #map .map-options {bottom: 36px;}
     text-shadow: none;
 }
 .notification .delete {cursor: pointer; position: absolute; top: 4px; right: 5px;}
+.windows .notification .delete,
+.windows8 .notification .delete  {top: 15px; right: 15px}
 .notification > aside {
     display: table-cell;
     
@@ -670,6 +677,16 @@ body.fullscreen-map #map .map-options {bottom: 36px;}
     text-align: center;
     vertical-align: middle;
 }
+
+.windows .notification > aside span,
+.windows8 .notification > aside span  {
+    position: absolute;
+    bottom: auto;
+    top: 50%;
+    margin-top: -25px;
+    margin-left: 5px;
+}
+
   
 .notification > main {
     display: table-cell;

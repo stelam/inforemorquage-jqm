@@ -24,7 +24,5 @@ PhotoMixins = {
 				});
 			});
 		});
-    },  
-
-    secondProperty: 'foobar'  
+    }
 };  
