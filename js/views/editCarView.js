@@ -281,6 +281,7 @@ window.EditCarPage = Backbone.View.extend({
 	focus: function(input) {
 		var clone = input.cloneNode(true);
 		var parent = input.parentElement;
+		console.log("focusing on " + input);
 		parent.appendChild(clone);
 		parent.replaceChild(clone, input);
 		input = clone;

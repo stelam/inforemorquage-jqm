@@ -325,6 +325,7 @@ textarea.error {border: 1px solid #e64 !important;}
 /***************
 * Formulaire d'édition de voiture
 ***************/
+.iOS #edit-car {margin-top: 22px;}
 #edit-car .thumb{
     background-position: center center;
     border-radius: 50%;

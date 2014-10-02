@@ -14,7 +14,10 @@ window.ConfigView = Backbone.View.extend({
     },
 
     events: function(){
-
+        return {
+            "click #btn-generate-cars" : "generateCars",
+            "click #btn-wipe-cars" : "wipeCars"
+        }
     },
 
     render: function (eventName) {
@@ -51,6 +54,14 @@ window.ConfigView = Backbone.View.extend({
 
         window.history.back();
 
+    },
+
+    generateCars: function(){
+
+    },
+
+    wipeCars: function(){
+        alert("wiping")
     }
 
 
