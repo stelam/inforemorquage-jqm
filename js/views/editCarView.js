@@ -49,7 +49,7 @@ window.EditCarPage = Backbone.View.extend({
 		if(e.which === 13){ // enter key
 			if ($(':focus').attr("id") == "name"){
 				// On utilise un timer sinon le clavier n'apparaît pas sous iOS
-				setTimeout(function() { $("#registration_number").focus(); }, 1000);
+				this.focus($("#registration_number").get(0));
 			}
 			else if ($(':focus').attr("id") == "registration_number")
 				this.validate();
@@ -276,7 +276,20 @@ window.EditCarPage = Backbone.View.extend({
         $('.ui-page-active').animate({
             scrollTop: pageScroll + $focused.offset().top
         }, 200);
+	},
+
+	focus: function(input) {
+		var clone = input.cloneNode(true);
+		var parent = input.parentElement;
+		parent.appendChild(clone);
+		parent.replaceChild(clone, input);
+		input = clone;
+		window.setTimeout(function() {
+			input.value = input.value || "";
+			input.focus();
+		}, 0);
 	}
+
 
 
 
