@@ -40,7 +40,7 @@ window.SendComplaintView = Backbone.View.extend({
     attributes: function() {
 
     	return {
-    		
+    		'class': 'send-complaint-form-el'
     	};
     },
 
@@ -195,7 +195,7 @@ window.SendComplaintView = Backbone.View.extend({
             "displayTime" : 12000
         });
         app.notificationModel.trigger('update');
-        window.history.back(-2);
+        window.history.go(-2);
     },
 
 

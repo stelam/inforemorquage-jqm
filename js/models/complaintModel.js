@@ -128,15 +128,21 @@ window.ComplaintModel = Backbone.Model.extend({
     * les callback du plugin de phonegap ne distingue pas un email envoyé d'un email annulé sur le callback
     */
     onEmailSent: function(emailClientResponse){
-        app.notification.display({
-            "type" : "success",
-            "message" : "Nous vous répondrons dans les plus brefs délais après la réception de votre message.",
-            "title" : "Merci",
-            "showButtons" : false,
-            "displayTime" : 3000
-        });
+        setTimeout(showNotification, 750);
 
-        app.router.navigate("/", {trigger: true});
+        function showNotification(){
+            app.notification.display({
+                "type" : "success",
+                "message" : "Nous vous répondrons dans les plus brefs délais après la réception de votre message.",
+                "title" : "Merci",
+                "showButtons" : false,
+                "displayTime" : 4000
+            });            
+        }
+
+
+        if (app.router.currentView.$el.hasClass("send-complaint-form-el"))
+            app.router.navigate("/", {trigger: true});
     },
 
 
