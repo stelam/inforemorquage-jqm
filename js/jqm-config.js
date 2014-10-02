@@ -14,6 +14,9 @@ $(document).bind("mobileinit", function () {
 	$.event.special.swipe.durationThreshold = 500;  // More time than this, and it isn't a swipe.
 	$.event.special.swipe.verticalDistanceThreshold = 75;
 
+
+
+
 });
 
 
@@ -21,3 +24,4 @@ $(document).bind("mobileinit", function () {
 $(document).on("pagehide", "div[data-role=page]", function(event){
 	$(event.target).remove();
 });
+

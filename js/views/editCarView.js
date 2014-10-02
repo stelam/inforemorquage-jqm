@@ -2,7 +2,7 @@ window.EditCarPage = Backbone.View.extend({
 
     initialize:function () {
     	_.bindAll(this,"validate");
-    	_.bindAll(this,"processKey");
+    	_.bindAll(this,"processFocus");
         this.template = _.template(tpl.get('edit-car'));
         this.imageURI = "";
         this.listenTo(app.eventBus, 'headerRightButton', this.validate);
@@ -21,7 +21,7 @@ window.EditCarPage = Backbone.View.extend({
 	    	'click .camera-control' : 'capturePhoto',
 	    	'click #car-image' : 'capturePhoto',
 	    	'click .browse-photo' : 'browsePhoto',
-	    	'keyup': 'processKey'
+	    	'click #name': 'processFocus'
 	    }
     },
 
@@ -45,16 +45,21 @@ window.EditCarPage = Backbone.View.extend({
     	};
     },
 
-	processKey: function(e) { 
-		if(e.which === 13){ // enter key
-			if ($(':focus').attr("id") == "name"){
-				// On utilise un timer sinon le clavier n'apparaît pas sous iOS
-				this.focus($("#registration_number").get(0));
+
+    processFocus: function(){
+    	var view = this;
+    	$("input").on("keyup", function(e){
+			if(e.which === 13){ // enter key
+				if ($(':focus').attr("id") == "name"){
+					// On utilise un fake focus sinon le clavier disparaît sous iOS
+					$("#registration_number").focus();
+
+				}
+				else if ($(':focus').attr("id") == "registration_number")
+					view.validate();
 			}
-			else if ($(':focus').attr("id") == "registration_number")
-				this.validate();
-		}
-	},
+    	})
+    },
 
     flagNewCar: function(){
     	if (typeof this.model.id == "undefined")
@@ -276,19 +281,6 @@ window.EditCarPage = Backbone.View.extend({
         $('.ui-page-active').animate({
             scrollTop: pageScroll + $focused.offset().top
         }, 200);
-	},
-
-	focus: function(input) {
-		var clone = input.cloneNode(true);
-		var parent = input.parentElement;
-		console.log("focusing on " + input);
-		parent.appendChild(clone);
-		parent.replaceChild(clone, input);
-		input = clone;
-		window.setTimeout(function() {
-			input.value = input.value || "";
-			input.focus();
-		}, 0);
 	}
 
 
