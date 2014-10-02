@@ -378,7 +378,7 @@ textarea.error {border: 1px solid #e64 !important;}
     height: 100px;
     border-radius: 200px !important;
     /*background-position: left center;*/
-    background-size: 150px auto;
+    background-size: 200px auto;
     margin-top: -49px !important;
     background-color: white !important;
     border: none !important;
@@ -649,6 +649,7 @@ body.fullscreen-map #map .map-options {bottom: 36px;}
 
 .page-content form > div {margin-bottom: 40px;}
 .page-content form > div:first-child {margin-bottom: 20px;}
+.page-content.config h2 {margin-top: 0px; border-bottom: 1px solid #ccc;}
 
 
 /***************

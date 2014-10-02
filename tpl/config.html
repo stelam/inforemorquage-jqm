@@ -1,5 +1,6 @@
 <div class="page-content ui-corner-all custom-corners config">
 	<form>
+		<h2>Paramètres généraux</h2>
 		<div class="field-towed-status-time">
 		    <label for="towed-status-time">Afficher les voitures qui ont été remorquées dans les derniers </label>
 		    <input type="range" name="towed-status-time" id="towed-status-time" data-highlight="true" min="1" max="12" value="<%= towingTimeLookBack %>">
@@ -22,6 +23,17 @@
 			<label for="flip-checkbox-2">Vibrer lorsqu'une voiture est remorquée :</label>
 			<input type="checkbox" data-role="flipswitch" name="vibration" id="vibration" data-on-text="Oui" data-off-text="Non" data-wrapper-class="custom-label-flipswitch" <% if (vibrateOnCarTowed) { %> checked="checked" <% } %>>
 		</div>
+
+
+		<h2>DEV</h2>
+		<div class="field-wipe">
+			<a href="#" class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow-icon">Générer des véhicules</a>
+		</div>
+
+		<div class="field-wipe">
+			<a href="#" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon">Supprimer tous les véhicules</a>
+		</div>
+
 	</form>
 <form>
 
