@@ -609,6 +609,7 @@ body.fullscreen-map #directions.fullscreen-map #map,
 body.fullscreen-map #directions .ui-navbar {margin: 0px;}
 #directions .ui-navbar li:last-child .ui-btn {margin-right: 0px; border-right-width: 1px;}
 #directions .ui-navbar {position: relative; z-index: 1; margin-top: 6px;}
+.iOS #directions .ui-navbar {top: 30px;}
 
 #map .map-options {z-index: 1; position: absolute; bottom: -31px; width: 100%;}
 body.fullscreen-map #map .map-options {bottom: 36px;}
