@@ -252,7 +252,8 @@ html, body {height: 100%;}
 .iOS .ui-header .ui-btn-icon-left {top: 8px;}
 .iOS #dashboard-car-list {padding-top: 32px;}
 .iOS .app-header #menu-button,
-.iOS .app-header #menu-button-contextual {top: 11px;}
+.iOS .app-header #menu-button-contextual {top: 7px;}
+.iOS .app-header .ui-btn-right {top: 5px;}
 .iOS #edit-car-page {padding-top: 67px;}
 .iOS .page-content {padding-top: 42px;}
 

@@ -47,8 +47,10 @@ window.EditCarPage = Backbone.View.extend({
 
 	processKey: function(e) { 
 		if(e.which === 13){ // enter key
-			if ($(':focus').attr("id") == "name")
-				$("#registration_number").focus();
+			if ($(':focus').attr("id") == "name"){
+				// On utilise un timer sinon le clavier n'apparaît pas sous iOS
+				setTimeout(function() { $("#registration_number").focus(); }, 250);
+			}
 			else if ($(':focus').attr("id") == "registration_number")
 				this.validate();
 		}
