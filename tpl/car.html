@@ -6,7 +6,7 @@
 	<% if (photoUrl == "") { %>
 		<a href="#popupMenu-<%= id %>" data-rel="popup" data-transition="pop"   class="image-container" style="background-image: url('photos/sample.png'); background-position: <%= bgPos1 %>% <%= bgPos2 %>%"></a>
 	<% } else { %>
-		<% if (window.device.platform != "windows" && window.device.platform != "windows8") { %>
+		<% if (typeof device == "undefined" || (window.device.platform != "windows" && window.device.platform != "windows8")) { %>
 			<a href="#popupMenu-<%= id %>" data-rel="popup" data-transition="pop"  class="image-container" style="background-image: url('<%= photoUrl %>'); background-position: <%= bgPos1 %>% <%= bgPos2 %>%"></a>
 		<% } else { %>
 			<a href="#popupMenu-<%= id %>" data-rel="popup" data-transition="pop"  class="image-container"><img src="ms-appdata:///local/info-remorquage/<%= photoFileName %>" /> </a>

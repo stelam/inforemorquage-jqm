@@ -2,7 +2,7 @@ window.EditCarPage = Backbone.View.extend({
 
     initialize:function () {
     	_.bindAll(this,"validate");
-    	_.bindAll(this,"processFocus");
+    	_.bindAll(this,"processKey");
         this.template = _.template(tpl.get('edit-car'));
         this.imageURI = "";
         this.listenTo(app.eventBus, 'headerRightButton', this.validate);
@@ -21,7 +21,7 @@ window.EditCarPage = Backbone.View.extend({
 	    	'click .camera-control' : 'capturePhoto',
 	    	'click #car-image' : 'capturePhoto',
 	    	'click .browse-photo' : 'browsePhoto',
-	    	'click #name': 'processFocus'
+	    	'keyup': 'processKey'
 	    }
     },
 
@@ -45,21 +45,17 @@ window.EditCarPage = Backbone.View.extend({
     	};
     },
 
-
-    processFocus: function(){
-    	var view = this;
-    	$("input").on("keyup", function(e){
-			if(e.which === 13){ // enter key
-				if ($(':focus').attr("id") == "name"){
-					// On utilise un fake focus sinon le clavier disparaît sous iOS
+	processKey: function(e) { 
+		if(e.which === 13){ // enter key
+			if ($(':focus').attr("id") == "name"){
+				// On utilise un fake focus sinon le clavier disparaît sous iOS
+				if (typeof device == "undefined" || device.platform != "iOS")
 					$("#registration_number").focus();
-
-				}
-				else if ($(':focus').attr("id") == "registration_number")
-					view.validate();
 			}
-    	})
-    },
+			else if ($(':focus').attr("id") == "registration_number")
+				this.validate();
+		}
+	},
 
     flagNewCar: function(){
     	if (typeof this.model.id == "undefined")

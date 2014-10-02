@@ -132,20 +132,11 @@ $(document).one(app.initEvent, function () {
 
 
             // Load Bing Maps if not on Windows
-            if (typeof window.device != "undefined" && window.device.platform != "windows" && window.device.platform != "windows8"){
+            if (!app.appState.isWindows()){
                 $(function(){
                     $.getScript("js/bing.maps.js");
                 });
             }
-
-
-
-            // Décommenter pour vider la collection de voitures de la mémoire
-            //var length = app.towing.length; for (var i = length - 1; i >= 0; i--) { app.cars.at(i).destroy(); }
-
-
-            // Décommenter pour vider les towings
-            // var ts = new TowingCollection(); ts.fetch(); var length = ts.length; for (var i = length - 1; i >= 0; i--) { ts.at(i).destroy(); }
 
 
 

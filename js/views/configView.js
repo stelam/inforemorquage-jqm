@@ -15,8 +15,8 @@ window.ConfigView = Backbone.View.extend({
 
     events: function(){
         return {
-            "click #btn-generate-cars" : "generateCars",
-            "click #btn-wipe-cars" : "wipeCars"
+            "click #btn-generate-cars" : "generateCarsRequest",
+            "click #btn-wipe-cars" : "wipeCarsRequest"
         }
     },
 
@@ -56,12 +56,25 @@ window.ConfigView = Backbone.View.extend({
 
     },
 
-    generateCars: function(){
-
+    generateCarsRequest: function(){
+        app.cars.seed();
+        app.notification.display({
+            "type" : "success",
+            "message" : "Cinq voitures ont été ajoutées.",
+            "title" : "Ajout de véhicules",
+            "showButtons" : false,
+            "callback" : null
+        });
     },
 
-    wipeCars: function(){
-        alert("wiping")
+    wipeCarsRequest: function(){
+        app.notification.display({
+            "type" : "warning",
+            "message" : "Êtes vous certain de vouloir effacer toutes les données des véhicules ?",
+            "title" : "Suppression des véhicules",
+            "showButtons" : true,
+            "callback" : app.cars.wipe
+        });
     }
 
 

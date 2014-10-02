@@ -209,11 +209,78 @@ window.CarCollection = Backbone.Collection.extend({
     model:CarModel,
     localStorage: new Store("cars"),
 
+    initialize: function(){
+        _.bindAll(this,"wipe");
+        _.bindAll(this,"seed");
+    },
+
     updateCarsStatus: function(){
         for(var i=0; i<this.length; i++) {
             var car = this.models[i];
             car.updateStatus();
         }
     },
+
+
+    wipe: function(){
+        var length = this.length; for (var i = length - 1; i >= 0; i--) { app.cars.at(i).destroy(); }
+        var ts = new TowingCollection(); ts.fetch(); var length = ts.length; for (var i = length - 1; i >= 0; i--) { ts.at(i).destroy(); }
+    },
+
+
+
+    seed: function(){
+        var regs = [
+            "326GVC",
+            "M25BFZ",
+            "191SAQ",
+            "151FXJ",
+            "S63AVB",
+            "P01BLJ",
+            "H36CSA",
+            "Z13EZG",
+            "715ZAV",
+            "068LWZ",
+            "W50AXJ",
+            "263VQJ",
+            "303XXA",
+            "KFX935"
+        ];
+
+        var names = [
+            "Suzuki Optimistic",
+            "Chrysler Overwhelmed",
+            "Mercury Undesirable",
+            "Ferrari Economic",
+            "Mitsubishi Snuggled",
+            "GMC Unusual",
+            "Suzuki Lackadaisical",
+            "Nissan Absent-Minded",
+            "GM Endearing",
+            "Eagle Aberrant",
+            "Hyundai Recondite"
+        ]
+
+
+        for (var i = 0; i < 5; i++) {
+            var randomIndex = Math.floor(Math.random() * 13);
+            var randomIndex2 = Math.floor(Math.random() * 10);
+            var randomIndex3 = Math.floor(Math.random() * 10 + 1);
+            var thisPhotoFileName = (randomIndex3 < 10) ? "car-0" + randomIndex3 + ".jpg" : "car-" + randomIndex3 + ".jpg";
+
+            var car = new CarModel();
+            this.add(car);
+            car.save({
+                registration_number : regs[randomIndex],
+                name : names[randomIndex2],
+                photoUrl : "photos/" + thisPhotoFileName,
+                photoFileName : thisPhotoFileName
+            })
+
+        }
+
+
+
+    }
 
 });

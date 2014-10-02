@@ -96,6 +96,10 @@ window.AppState = Backbone.Model.extend({
     onResume: function(){
         app.eventBus.trigger('appResume');
         this.checkOfflineJobs();
+    },
+
+    isWindows: function(){
+        return (typeof window.device == "undefined" || window.device.platform != "windows" && window.device.platform != "windows8") ? false : true;
     }
 
 
