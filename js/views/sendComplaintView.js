@@ -195,7 +195,7 @@ window.SendComplaintView = Backbone.View.extend({
             "displayTime" : 12000
         });
         app.notificationModel.trigger('update');
-        app.router.navigate("/", {trigger: true});
+        window.history.back(-2);
     },
 
 
