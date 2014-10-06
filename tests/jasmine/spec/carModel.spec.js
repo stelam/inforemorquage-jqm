@@ -40,6 +40,9 @@ describe('Car model', function() {
 
 			// Sinon spies
 			this.eventSpy = sinon.spy();
+
+			// Load config
+			app.config = new ConfigModel();
 		});
 
 

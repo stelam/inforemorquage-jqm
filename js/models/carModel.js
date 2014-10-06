@@ -103,6 +103,8 @@ window.CarModel = Backbone.Model.extend({
                 towing.set({immatriculation : car.get("registration_number")});
                 towing.setFromXml(xml);
 
+                console.log(towing);
+
                 var towings = car.get("towings");
                 towings.fetch();
 
@@ -275,7 +277,8 @@ window.CarCollection = Backbone.Collection.extend({
                 registration_number : regs[randomIndex],
                 photoUrl : "photos/" + thisPhotoFileName,
                 photoFileName : thisPhotoFileName,
-                status: 1
+                status: 1,
+                towings: new TowingCollection()
             })
 
         }
