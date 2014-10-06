@@ -23,7 +23,7 @@ window.AppState = Backbone.Model.extend({
         document.addEventListener('hidekeyboard', this.onKeyboardHide, false);
         document.addEventListener('showkeyboard', this.onKeyboardShow, false);
 
-        this.set({"online" : false});
+        this.set({"online" : true});
         this.set({"offlineJobsChecked" : false})
 
     },
