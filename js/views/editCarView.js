@@ -213,7 +213,7 @@ window.EditCarPage = Backbone.View.extend({
 							saveCarData();
 
 						}, function(error) { 
-							alert('copyTo fail (' + error.code + '): ');
+							console.log('copyTo fail (' + error.code + '): ');
 						});
 					
 					});

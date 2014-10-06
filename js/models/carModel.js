@@ -269,12 +269,13 @@ window.CarCollection = Backbone.Collection.extend({
             var thisPhotoFileName = (randomIndex3 < 10) ? "car-0" + randomIndex3 + ".jpg" : "car-" + randomIndex3 + ".jpg";
 
             var car = new CarModel();
+            car.set({name : names[randomIndex2]});
             this.add(car);
             car.save({
                 registration_number : regs[randomIndex],
-                name : names[randomIndex2],
                 photoUrl : "photos/" + thisPhotoFileName,
-                photoFileName : thisPhotoFileName
+                photoFileName : thisPhotoFileName,
+                status: 1
             })
 
         }

@@ -6,7 +6,7 @@
 				<div id="car-image" class="thumb default" style="background-image:url(photos/sample.png)"></div>
 			<% } else { %> 
 				
-				<% if (window.device.platform != "windows" && window.device.platform != "windows8") { %>
+				<% if (!app.appState.isWindows()) { %>
 					<div id="car-image" class="thumb default" style="background-image:url(<%= photoUrl %>)"></div>
 				<% } else { %>
 					<div id="car-image" class="thumb default" style="background-image:url(<%= photoUrl %>)"><img src="ms-appdata:///local/info-remorquage/<%= photoFileName %>" /></div>
