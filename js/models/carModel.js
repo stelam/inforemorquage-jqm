@@ -103,10 +103,9 @@ window.CarModel = Backbone.Model.extend({
                 towing.set({immatriculation : car.get("registration_number")});
                 towing.setFromXml(xml);
 
-                console.log(towing);
+
 
                 var towings = car.get("towings");
-                towings.fetch();
 
                 if (towings.add(towing))
                     towing.save();
@@ -148,7 +147,7 @@ window.CarModel = Backbone.Model.extend({
 
 
     getTowingDestinationAddress: function(){
-        var towing = this.get("towings").models[this.get("towings").models.length-1];
+        var towing = this.getLastTowing();
         return towing.get("destination").addressNumber + " " + towing.get("destination").street.type + " " + towing.get("destination").street.name;
     },
 
@@ -195,6 +194,13 @@ window.CarModel = Backbone.Model.extend({
         var thisImmatriculationTowings = this.get("towings").where({immatriculation: this.get("registration_number")});
 
         return thisImmatriculationTowings[thisImmatriculationTowings.length -1];
+    },
+
+
+    serializeForTemplate: function() {
+        var c = this.toJSON();
+        c.towing = this.getLastTowing();
+        return c;
     }
 
 
@@ -225,7 +231,15 @@ window.CarCollection = Backbone.Collection.extend({
 
 
     wipe: function(){
-        var length = this.length; for (var i = length - 1; i >= 0; i--) { app.cars.at(i).destroy(); }
+        var length = this.length; for (var i = length - 1; i >= 0; i--) { 
+            var towings = app.cars.at(i).get("towings");
+
+            var length2 = towings.length; for (var j = length2 - 1; j >= 0; j--){
+                towings.at(j).destroy();
+            }
+            app.cars.at(i).destroy(); 
+        }
+
         var ts = new TowingCollection(); ts.fetch(); var length = ts.length; for (var i = length - 1; i >= 0; i--) { ts.at(i).destroy(); }
     },
 

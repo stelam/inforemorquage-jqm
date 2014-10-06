@@ -26,7 +26,7 @@ window.CarDetailsView = Backbone.View.extend({
             'data' : {carId: this.model.get("id")}
         });
 
-		this.$el.html(this.template(this.model.toJSON())).trigger("create");
+		this.$el.html(this.template(this.model.serializeForTemplate())).trigger("create");
 
 		return this; // enable chained calls
 	},
