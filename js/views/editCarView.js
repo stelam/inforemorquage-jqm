@@ -196,7 +196,7 @@ window.EditCarPage = Backbone.View.extend({
 		var photoFileName = "";
 
 		// Sauvegarde de la photo en mode persistance
-		if (this.model.get("photoUrl") != ""){
+		if (this.model.get("photoUrl") != "" && this.model.get("photoUrl").indexOf("car") < 0){
 			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSys) {
 				window.resolveLocalFileSystemURL(photoUrl, function(entry) {
 					var d = new Date();
