@@ -170,6 +170,7 @@ window.SendComplaintView = Backbone.View.extend({
         // afin de recommencer l'essai une fois que
         // l'appareil aura regagner l'accès à l'internet
         else {
+            console.log(app.appState);
             this.model.prepareOffline();
         }
     },
