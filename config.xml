@@ -42,7 +42,6 @@
     <gap:plugin name="org.apache.cordova.media" version="0.2.8" />
     <gap:plugin name="org.apache.cordova.media-capture" version="0.2.8" />
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
-    <gap:plugin name="org.apache.cordova.splashscreen" version="0.2.7" />
     <gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
     <gap:plugin name="org.apache.cordova.vibration" version="0.3.7" />
 
